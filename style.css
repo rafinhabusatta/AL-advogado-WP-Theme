@@ -5,5 +5,105 @@
 */
 
 body {
-  color: orange;
+  --blue-800: #0d1a26;
+  --blue-500: #1c2f40;
+  --blue-300: #284259;
+  --blue-100: #516373;
+  --gray: #eaeaea;
+  --white: #fff;
+  --gold: #a48111;
+}
+
+.bg-blue {
+  background-color: var(--blue-500);
+}
+
+.bg-blue-dark {
+  background-color: var(--blue-800);
+}
+
+.bg-gray {
+  background-color: var(--gray);
+}
+
+.bg-blue-light {
+  background-color: var(--blue-100);
+}
+
+.btn-gold {
+  background-color: var(--gold);
+  color: var(--white);
+}
+
+.text-white {
+  color: var(--white);
+}
+
+.text-gold {
+  color: var(--gold);
+}
+
+.text-blue {
+  color: var(--blue-500);
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.my-128 {
+  margin-top: 128px;
+  margin-bottom: 128px;
+}
+
+.fs-32 {
+  font-size: 32px;
+}
+
+.fs-48 {
+  font-size: 48px;
+}
+
+.header-banner {
+  background-color: var(--blue-500);
+  height: 430px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-banner h1 {
+  max-width: 970px;
+}
+
+.shadow-text {
+  position: absolute;
+  font-size: 48px;
+  filter: opacity(10%);
+  top: -12px;
+  left: 0px;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .fs-lg-48 {
+    font-size: 48px;
+  }
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
 }
