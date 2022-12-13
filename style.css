@@ -14,7 +14,28 @@ body {
   --gold: #a48111;
 }
 
+a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.bg-blue-light {
+  background-color: var(--blue-100);
+}
+
 .bg-blue {
+  background-color: var(--blue-300);
+}
+
+.bg-blue-medium {
   background-color: var(--blue-500);
 }
 
@@ -26,12 +47,17 @@ body {
   background-color: var(--gray);
 }
 
-.bg-blue-light {
-  background-color: var(--blue-100);
+.btn-al-advogados {
+  width: 255px;
 }
 
 .btn-gold {
   background-color: var(--gold);
+  color: var(--white);
+}
+
+.btn-dark {
+  background-color: var(--blue-800);
   color: var(--white);
 }
 
@@ -64,13 +90,32 @@ body {
   font-size: 48px;
 }
 
+.g-column-1 {
+  grid-column: 1;
+}
+
+.g-column-2 {
+  grid-column: 2;
+}
+
+.g-row-1 {
+  grid-row: 1;
+}
+
+.g-row-2 {
+  grid-row: 2;
+}
+
+.g-column-1-span-2 {
+  grid-column: 1 / span 2;
+}
+
 .header-banner {
-  background-color: var(--blue-500);
   height: 430px;
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 30% 25% 45%;
+  grid-template-rows: auto auto;
 }
 
 .header-banner h1 {
