@@ -1,0 +1,84 @@
+/* Bootstrap Extention Classes */
+
+.bg-blue-light {
+  background-color: var(--blue-100);
+}
+
+.bg-blue {
+  background-color: var(--blue-300);
+}
+
+.bg-blue-medium {
+  background-color: var(--blue-500);
+}
+
+.bg-blue-dark {
+  background-color: var(--blue-800);
+}
+
+.bg-gray {
+  background-color: var(--gray);
+}
+
+.btn-al-advogados {
+  width: 255px;
+}
+
+.btn-gold {
+  background-color: var(--gold);
+  color: var(--white);
+}
+
+.btn-dark {
+  background-color: var(--blue-800);
+  color: var(--white);
+}
+
+.text-white {
+  color: var(--white);
+}
+
+.text-gold {
+  color: var(--gold);
+}
+
+.text-blue {
+  color: var(--blue-500);
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.my-128 {
+  margin-top: 128px;
+  margin-bottom: 128px;
+}
+
+.fs-32 {
+  font-size: 32px;
+}
+
+.fs-48 {
+  font-size: 48px;
+}
+
+.g-column-1 {
+  grid-column: 1;
+}
+
+.g-column-2 {
+  grid-column: 2;
+}
+
+.g-row-1 {
+  grid-row: 1;
+}
+
+.g-row-2 {
+  grid-row: 2;
+}
+
+.g-column-1-span-2 {
+  grid-column: 1 / span 2;
+}
