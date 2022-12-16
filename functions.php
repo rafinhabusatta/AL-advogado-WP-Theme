@@ -10,3 +10,8 @@ function aladvogados_files() {
   wp_enqueue_script('bootstrap_js', '//cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', NULL, '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'aladvogados_files');
+
+function aladvogados_features() {
+  add_theme_support('title-tag');
+}
+add_action('after_setup_theme', 'aladvogados_features');

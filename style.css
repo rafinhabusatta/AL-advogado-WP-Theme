@@ -59,6 +59,9 @@ li {
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
+  body {
+    background-color: black !important;
+  }
 }
 
 // Large devices (desktops, 992px and up)
