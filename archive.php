@@ -1,17 +1,31 @@
 <?php get_header();  ?>
   <!-- generic blog post page -->
-  <div class="header-banner text-center text-lg-start bg-blue">
-  <div class="row h-100 m-auto container">
-    <div class="col-12">
-      <h1 class="text-gold fw-bold mx-3 fs-32 fs-lg-65">
-        Welcome to our blog!
-      </h1>
-      <p class="class-justify">
-        Keep up ith our latest news.
-      </p>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="row mx-0 mx-md-4 px-2">
+          <div class="col-12 px-md-0">
+            <h1 class="text-center mb-4 text-uppercase">
+              <?php 
+              the_archive_title();
+                // if (is_category()) {
+                //  single_cat_title();
+                // }
+                // if (is_author()) {
+                //   echo  'Posts by '; the_author();
+                // } ?></h1>
+          </div>
+        </div>
+        <div class="row mx-0 mx-md-4 px-2">
+          <div class="col-12 px-md-0 m-xl-auto">
+            <p class="class-justify">
+              <?php the_archive_description(); ?>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
   <div class="container">
     <div class="row mx-0 mt-3">
       <div class="col-12">

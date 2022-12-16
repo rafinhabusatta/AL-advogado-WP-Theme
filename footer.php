@@ -25,6 +25,12 @@
             <p><a href="https://goo.gl/maps/zxrqgNQmgbsQTUMs5" target="_blank">Praça Osvaldo Cruz, 15 - sala 1905 - Cep: 90030-160 - Porto Alegre/RS</a></p>
           </div>
           <div class="col-12">
+            <?php 
+              // wp_nav_menu(array(
+              //   'theme_location' => 'FooterLocationOne',
+                
+              //));
+            ?>
             <ul>
               <li><a href="#">Sobre</a></li>
               <li><a href="#">Notícias</a></li>

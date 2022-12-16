@@ -12,6 +12,9 @@ function aladvogados_files() {
 add_action('wp_enqueue_scripts', 'aladvogados_files');
 
 function aladvogados_features() {
+  register_nav_menu('headerMenuLocation', 'Header Menu Location');
+  register_nav_menu('FooterLocationOne', 'Footer Location One');
+  register_nav_menu('FooterLocationTwo', 'Footer Location Two');
   add_theme_support('title-tag');
 }
 add_action('after_setup_theme', 'aladvogados_features');
