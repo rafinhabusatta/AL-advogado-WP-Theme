@@ -14,6 +14,24 @@
         </nav>
         <?php the_content(); ?>
       </div>
+      <?php 
+        $relatedPrograms = get_field('related_programs');
+        //print_r($relatedPrograms);
+        if($relatedPrograms) {
+          echo '<div class="col-12"><h3>Related Program(s):</h3><ul>';
+          foreach($relatedPrograms as $program) {
+            ?>
+              <li>
+                <a href="<?php echo get_the_permalink($program); ?>">
+                  <?php echo get_the_title($program); ?>
+                </a>
+              </li>
+            <?php
+          }
+          echo '</ul>
+          </div>';
+        }
+      ?>
     </div>
   </div>
 

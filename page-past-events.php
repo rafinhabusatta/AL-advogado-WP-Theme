@@ -5,13 +5,13 @@
       <div class="col-12">
         <div class="row mx-0 mx-md-4 px-2">
           <div class="col-12 px-md-0">
-            <h1 class="text-center mb-4 text-uppercase">All Events</h1>
+            <h1 class="text-center mb-4 text-uppercase">Past Events</h1>
           </div>
         </div>
         <div class="row mx-0 mx-md-4 px-2">
           <div class="col-12 px-md-0 m-xl-auto">
             <p class="class-justify">
-              See whats going on in our world.
+              A recap of our past events.
             </p>
           </div>
         </div>
@@ -23,8 +23,25 @@
       <div class="col-12">
         <div class="row">
           <?php
-          while(have_posts()) {
-            the_post(); ?>
+          $today = date('Ymd');
+          $pastEvents = new WP_QUERY(array(
+            'paged' => get_query_var('paged', 1),
+            'post_type' => 'event',
+            'meta_key' => 'event_date',
+            'orderby' => 'meta_value_num',
+            'order' => 'ASC',
+            'meta_query' => array(
+              array(
+                'key' => 'event_date',
+                'compare' => '<',
+                'value' => $today,
+                'type' => 'numeric'
+              )
+            )
+          ));
+
+          while($pastEvents->have_posts()) {
+            $pastEvents->the_post(); ?>
             <div class="col-12 col-md-6 col-lg-4">
               <div class="card mb-4">
                 <div class="card-body">
@@ -44,8 +61,8 @@
         </div>
       </div>
     </div>
-    <?php echo paginate_links(); ?>
-    <hr>
-    <p>Looking for a recap of past events? <a href="<?php echo site_url('/past-events') ?>">Check out our past events archive</a></p>
+    <?php echo paginate_links(array(
+      'total' => $pastEvents->max_num_pages
+    )); ?>
   </div>
 <?php  get_footer(); ?>

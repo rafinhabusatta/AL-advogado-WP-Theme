@@ -205,9 +205,21 @@
       </h2>
       <div class="row">
         <?php
+          $today = date('Ymd');
           $homepageEvents = new WP_QUERY(array(
             'posts_per_page' => 3,
-            'post_type' => 'event'
+            'post_type' => 'event',
+            'meta_key' => 'event_date',
+            'orderby' => 'meta_value_num',
+            'order' => 'ASC',
+            'meta_query' => array(
+              array(
+                'key' => 'event_date',
+                'compare' => '>=',
+                'value' => $today,
+                'type' => 'numeric'
+              )
+            )
           ));
 
           while($homepageEvents->have_posts()) {
@@ -216,7 +228,11 @@
               <div class="card mb-4">
                 <div class="card-body">
                   <h5 class="card-title"><?php the_title(); ?></h5>
-                  <p>Posted by <?php the_author_posts_link(); ?> on <?php the_time('d/m/Y'); ?> in <?php echo get_the_category_list(', '); ?></p>
+                  <p>
+                    Data: <?php 
+                      $eventDate = new DateTime(get_field('event_date'));
+                      echo $eventDate->format('d/m/y') ?>
+                  </p>
                   <p class="card-text">
                     <?php 
                       if(has_excerpt()) {
@@ -233,7 +249,7 @@
             <?php } wp_reset_postdata();
           ?>
       </div>
-      <button class="btn btn-dark"><a href="<?php get_post_type_archive_link('event'); ?>">Ver todos os eventos</a></button>
+      <button class="btn btn-dark"><a href="<?php echo get_post_type_archive_link('event'); ?>">Ver todos os eventos</a></button>
     </div>
   </div>
 </main>
