@@ -46,6 +46,9 @@
             <a <?php if ( get_post_type() == 'post') echo 'class="nav-link active" aria-current="page"' ?> class="nav-link" href="<?php echo site_url('/noticias'); ?>">Notícias</a>
           </li>
           <li class="nav-item">
+            <a <?php if ( get_post_type() == 'event') echo 'class="nav-link active" aria-current="page"' ?> class="nav-link" href="<?php echo get_post_type_archive_link('event'); ?>">Eventos</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="#">Contato</a>
           </li>
         </ul>

@@ -198,5 +198,43 @@
       <button class="btn btn-dark"><a href="<?php echo site_url('/noticias'); ?>">Ver todas as notícias</a></button>
     </div>
   </div>
+  <div class="row mt-5">
+    <div class="col-12">
+      <h2 class="fs-32 fs-lg-48 fw-semibold mb-4 position-relative">
+        Eventos<span class="shadow-text">Eventos</span>
+      </h2>
+      <div class="row">
+        <?php
+          $homepageEvents = new WP_QUERY(array(
+            'posts_per_page' => 3,
+            'post_type' => 'event'
+          ));
+
+          while($homepageEvents->have_posts()) {
+            $homepageEvents->the_post(); ?>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card mb-4">
+                <div class="card-body">
+                  <h5 class="card-title"><?php the_title(); ?></h5>
+                  <p>Posted by <?php the_author_posts_link(); ?> on <?php the_time('d/m/Y'); ?> in <?php echo get_the_category_list(', '); ?></p>
+                  <p class="card-text">
+                    <?php 
+                      if(has_excerpt()) {
+                        echo get_the_excerpt();
+                      }else {
+                        echo wp_trim_words(get_the_content(), 18);
+                      } 
+                    ?>
+                  </p>
+                  <a href="<?php the_permalink(); ?>" class="btn btn-primary">Read more</a>
+                </div>
+              </div>
+            </div>
+            <?php } wp_reset_postdata();
+          ?>
+      </div>
+      <button class="btn btn-dark"><a href="<?php get_post_type_archive_link('event'); ?>">Ver todos os eventos</a></button>
+    </div>
+  </div>
 </main>
 <?php  get_footer(); ?>

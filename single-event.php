@@ -1,0 +1,22 @@
+<?php
+  get_header();
+ while(have_posts()) {
+  the_post(); ?>
+  <div class="container">
+    <div class="row mx-0 mt-5">
+      <div class="col-12">
+        <h2><?php the_title(); ?></h2>
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="<?php echo get_post_type_archive_link('event'); ?>">Events Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?php the_title(); ?></li>
+          </ol>
+        </nav>
+        <?php the_content(); ?>
+      </div>
+    </div>
+  </div>
+
+  <?php }
+  get_footer();
+?>
