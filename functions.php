@@ -1,13 +1,31 @@
 <?php
 
-function pageBanner() { ?>
-  <div class="row bg-blue header-banner" style="background-image: url(<?php $pageBannerImage = get_field('page_banner_background_image'); echo $pageBannerImage['sizes']['pageBanner'] ?>);">
+function pageBanner($args = NULL) {
+  if (!$args['title']) {
+    $args['title'] = get_the_title();
+  }
+
+  if (!$args['subtitle']) {
+    $args['subtitle'] = get_field('page_banner_subtitle');
+  }
+
+  if (!$args['photo']) {
+    if (get_field('page_banner_background_image') AND !is_archive() AND !is_home()) {
+      $args['photo'] = get_field('page_banner_background_image')['sizes']['pageBanner'];
+    } else {
+      $args['photo'] = get_theme_file_uri('/images/ocean.jpg');
+    }
+  }
+
+  ?>
+  <div class="container-fluid">
+    <div class="row bg-blue header-banner text-center" style="background-image: url(<?php echo $args['photo']?>); background-repeat: no-repeat; background-size: cover;">
       <div class="col-12">
         <div class="row mx-0 mx-md-4 px-2">
           <div class="col-12 px-md-0">
-            <h1 class="text-center mb-4 text-uppercase">
+            <h1 class="text-center text-gold my-4 text-uppercase fw-bold fs-32 fs-lg-65">
               <?php 
-              the_title();
+                echo $args['title'];
                 // if (is_category()) {
                 //  single_cat_title();
                 // }
@@ -19,12 +37,13 @@ function pageBanner() { ?>
         <div class="row mx-0 mx-md-4 px-2">
           <div class="col-12 px-md-0 m-xl-auto">
             <p class="class-justify">
-              <?php the_field('page_banner_subtitle') ?>
+              <?php echo $args['subtitle'] ?>
             </p>
           </div>
         </div>
       </div>
     </div>
+  </div>
 <?php }
 
 function aladvogados_files() {

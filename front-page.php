@@ -223,30 +223,9 @@
           ));
 
           while($homepageEvents->have_posts()) {
-            $homepageEvents->the_post(); ?>
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <h5 class="card-title"><?php the_title(); ?></h5>
-                  <p>
-                    Data: <?php 
-                      $eventDate = new DateTime(get_field('event_date'));
-                      echo $eventDate->format('d/m/y') ?>
-                  </p>
-                  <p class="card-text">
-                    <?php 
-                      if(has_excerpt()) {
-                        echo get_the_excerpt();
-                      }else {
-                        echo wp_trim_words(get_the_content(), 18);
-                      } 
-                    ?>
-                  </p>
-                  <a href="<?php the_permalink(); ?>" class="btn btn-primary">Read more</a>
-                </div>
-              </div>
-            </div>
-            <?php } wp_reset_postdata();
+            $homepageEvents->the_post(); 
+            get_template_part('template-parts/content', 'event');
+            } wp_reset_postdata();
           ?>
       </div>
       <button class="btn btn-dark"><a href="<?php echo get_post_type_archive_link('event'); ?>">Ver todos os eventos</a></button>

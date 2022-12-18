@@ -1,19 +1,9 @@
 <?php
 get_header();
  while(have_posts()) {
-  the_post(); ?>
-<div class="header-banner text-center text-lg-start bg-blue">
-  <div class="row h-100 m-auto container">
-    <div class="col-12">
-      <h1 class="text-gold fw-bold mx-3 fs-32 fs-lg-65">
-        <?php the_title(); ?>
-      </h1>
-      <p class="class-justify">
-        NÃO ESQUECER O SUBTITLE!
-      </p>
-    </div>
-  </div>
-</div>
+  the_post();
+  pageBanner();
+  ?>
 <div class="container">
   <div class="row">
     <div class="col-12">

@@ -1,17 +1,10 @@
-<?php get_header();  ?>
-  <!-- generic blog post page -->
-  <div class="header-banner text-center text-lg-start bg-blue">
-  <div class="row h-100 m-auto container">
-    <div class="col-12">
-      <h1 class="text-gold fw-bold mx-3 fs-32 fs-lg-65">
-        Welcome to our blog!
-      </h1>
-      <p class="class-justify">
-        Keep up ith our latest news.
-      </p>
-    </div>
-  </div>
-</div>
+<?php get_header();
+  pageBanner(array(
+    'title' => 'Welcome to our blog!',
+    'subtitle' => 'Keep up with our latest news.'
+  ));
+?>
+  <!-- generic home page -->
   <div class="container">
     <div class="row mx-0 mt-3">
       <div class="col-12">

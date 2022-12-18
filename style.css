@@ -47,6 +47,7 @@ li {
 
 .header-banner h1 {
   max-width: 970px;
+  margin: auto;
 }
 
 .shadow-text {
@@ -71,6 +72,9 @@ li {
     background-color: black !important;
   }
 }
+.fs-lg-65 {
+  font-size: 30px;
+}
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
@@ -78,8 +82,11 @@ li {
     font-size: 48px;
   }
 
-  .fs-lg-65 {
+  .fs-32 {
     font-size: 65px;
+  }
+  body {
+    background-color: black !important;
   }
 }
 

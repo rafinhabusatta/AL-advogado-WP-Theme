@@ -1,31 +1,10 @@
-<?php get_header();  ?>
-  <!-- generic blog post page -->
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="row mx-0 mx-md-4 px-2">
-          <div class="col-12 px-md-0">
-            <h1 class="text-center mb-4 text-uppercase">
-              <?php 
-              the_archive_title();
-                // if (is_category()) {
-                //  single_cat_title();
-                // }
-                // if (is_author()) {
-                //   echo  'Posts by '; the_author();
-                // } ?></h1>
-          </div>
-        </div>
-        <div class="row mx-0 mx-md-4 px-2">
-          <div class="col-12 px-md-0 m-xl-auto">
-            <p class="class-justify">
-              <?php the_archive_description(); ?>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<?php get_header();
+  pageBanner(array(
+    'title' => get_the_archive_title(),
+    'subtitle' => get_the_archive_description()
+  ))
+?>
+  <!-- generic archive -->
   <div class="container">
     <div class="row mx-0 mt-3">
       <div class="col-12">

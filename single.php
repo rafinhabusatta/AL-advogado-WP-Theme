@@ -1,11 +1,12 @@
 <?php
   get_header();
  while(have_posts()) {
-  the_post(); ?>
+  the_post();
+  pageBanner();
+  ?>
   <div class="container">
     <div class="row mx-0 mt-5">
       <div class="col-12">
-        <h2><?php the_title(); ?></h2>
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="<?php echo site_url('/noticias'); ?>">Home</a></li>

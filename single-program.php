@@ -1,11 +1,12 @@
 <?php
   get_header();
  while(have_posts()) {
-  the_post(); ?>
+  the_post();
+  pageBanner();
+  ?>
   <div class="container">
     <div class="row mx-0 mt-5">
       <div class="col-12">
-        <h2><?php the_title(); ?></h2>
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="<?php echo get_post_type_archive_link('program'); ?>">All programs</a></li>
@@ -37,7 +38,7 @@
             <div class="col-12 col-md-6 col-lg-4">
               <div class="card mb-4">
                 <div class="card-body">
-                <img src="<?php the_post_thumbnail_url('professorLandscape'); ?>" class="card-img-top" alt="Professor <?php the_title(); ?>">
+                  <img src="<?php the_post_thumbnail_url('professorLandscape'); ?>" class="card-img-top" alt="Professor <?php the_title(); ?>">
 
                   <h5 class="card-title"><?php the_title(); ?></h5>
                   <p class="card-text">
@@ -54,9 +55,8 @@
               </div>
             </div>
             <?php } 
-        } ?>
-        </div>
-      </div>
+        } 
+      ?>
       <?php
         wp_reset_postdata(); // reset the query
 
@@ -86,34 +86,15 @@
           echo '<div class="col-12"><h3>Upcoming ' . get_the_title() . ' events</h3><div class="row">';
 
           while($homepageEvents->have_posts()) {
-            $homepageEvents->the_post(); ?>
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <h5 class="card-title"><?php the_title(); ?></h5>
-                  <p>
-                    Data: <?php 
-                      $eventDate = new DateTime(get_field('event_date'));
-                      echo $eventDate->format('d/m/y') ?>
-                  </p>
-                  <p class="card-text">
-                    <?php 
-                      if(has_excerpt()) {
-                        echo get_the_excerpt();
-                      }else {
-                        echo wp_trim_words(get_the_content(), 18);
-                      } 
-                    ?>
-                  </p>
-                  <a href="<?php the_permalink(); ?>" class="btn btn-primary">Read more</a>
-                </div>
-              </div>
-            </div>
-            <?php } wp_reset_postdata();//wp_reset_postdata();
+            $homepageEvents->the_post();
+            get_template_part('template-parts/content-event');
+          } wp_reset_postdata();//wp_reset_postdata();
         }?>
         </div>
       </div>
     </div>
+  </div>
+  </div>
   </div>
 
   <?php }
