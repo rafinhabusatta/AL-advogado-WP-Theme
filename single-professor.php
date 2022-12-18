@@ -3,30 +3,7 @@
  while(have_posts()) {
   the_post(); ?>
   <div class="container">
-    <div class="row bg-blue header-banner" style="background-image: url(<?php $pageBannerImage = get_field('page_banner_background_image'); echo $pageBannerImage['sizes']['pageBanner'] ?>);">
-      <div class="col-12">
-        <div class="row mx-0 mx-md-4 px-2">
-          <div class="col-12 px-md-0">
-            <h1 class="text-center mb-4 text-uppercase">
-              <?php 
-              the_title();
-                // if (is_category()) {
-                //  single_cat_title();
-                // }
-                // if (is_author()) {
-                //   echo  'Posts by '; the_author();
-                // } ?></h1>
-          </div>
-        </div>
-        <div class="row mx-0 mx-md-4 px-2">
-          <div class="col-12 px-md-0 m-xl-auto">
-            <p class="class-justify">
-              <?php the_field('page_banner_subtitle') ?>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php pageBanner(); ?>
     <div class="row mx-0 mt-5">
       <div class="col-12 col-lg-8">
         <?php the_content(); ?>
