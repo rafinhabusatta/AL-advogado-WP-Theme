@@ -52,6 +52,9 @@
             <a <?php if ( get_post_type() == 'program' OR is_page('programs')) echo 'class="nav-link active" aria-current="page"' ?> class="nav-link" href="<?php echo get_post_type_archive_link('program'); ?>">Programas</a>
           </li>
           <li class="nav-item">
+            <a <?php if ( get_post_type() == 'campus' OR is_page('campuses')) echo 'class="nav-link active" aria-current="page"' ?> class="nav-link" href="<?php echo get_post_type_archive_link('campus'); ?>">Campi</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="#">Contato</a>
           </li>
         </ul>

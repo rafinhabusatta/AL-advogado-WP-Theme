@@ -41,5 +41,6 @@
       </footer>
     </div>
 <?php wp_footer(); ?>
+<script src="build/index.js"></script>
 </body>
 </html>
