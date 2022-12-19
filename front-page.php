@@ -155,7 +155,7 @@
     <div class="col-12 col-lg-6">
       <h2 class="fs-32 fw-bold mb-4 text-blue">PLANEJE A SUA APOSENTADORIA CONOSCO</h2>
         <p class="text-justify">
-          Fazemos um estudo de projeção financeira para que você possa aproveitar sua aposentadoria ao máximo
+          Fazemos um estudo de projeção financeira para que você possa aproveitar sua aposentadoria ao máximo!
         </p>
         <button type="button" class="btn btn-dark">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
@@ -165,7 +165,7 @@
         </button>
     </div>
     <div class="d-none d-lg-block col-6">
-      <img class="img-fluid" src="assets/SVG/investing.svg" alt="Ilustração">
+      <img class="img-fluid" src="<?php echo get_theme_file_uri('assets/SVG/investing.svg'); ?>" alt="Ilustração">
   </div>
   <div class="row mt-5">
     <div class="col-12">
