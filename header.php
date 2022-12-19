@@ -58,7 +58,7 @@
             <a class="nav-link" href="#">Contato</a>
           </li>
         </ul>
-        <!-- <form class="d-flex" role="search">
+        <form class="d-flex" role="search">
           <input
             class="form-control me-2"
             type="search"
@@ -69,7 +69,7 @@
             Pesquisar
           </button>
         </form> 
-      </div>-->
+      </div>
     </div>
   </nav>
 </header>

@@ -83,6 +83,25 @@ class GMap {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GMap);
 
+/***/ }),
+
+/***/ "./src/modules/Search.js":
+/*!*******************************!*\
+  !*** ./src/modules/Search.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+class Search {
+  constructor() {
+    //alert('Hello I am a search.')
+  }
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Search);
+
 /***/ })
 
 /******/ 	});
@@ -149,17 +168,16 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_GoogleMap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/GoogleMap */ "./src/modules/GoogleMap.js");
+/* harmony import */ var _modules_Search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Search */ "./src/modules/Search.js");
 //import '../css/style.scss'
 
 // Our modules / classes
-//import MobileMenu from './modules/MobileMenu'
-//import HeroSlider from './modules/HeroSlider'
+
 
 
 // Instantiate a new object using our modules/classes
-const mobileMenu = new MobileMenu();
-const heroSlider = new HeroSlider();
 const googleMap = new _modules_GoogleMap__WEBPACK_IMPORTED_MODULE_0__["default"]();
+const search = new _modules_Search__WEBPACK_IMPORTED_MODULE_1__["default"]();
 })();
 
 /******/ })()
