@@ -1,6 +1,6 @@
 <div class="container-fluid bg-blue">
       <footer class="d-flex flex-wrap justify-content-between align-items-center pt-3 mt-4 text-center text-white">
-        <div class="row">
+        <div class="row w-100">
           <div class="col-12 col-lg-4">
             <a href="#">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16" role="img" aria-label="Faceboo">
@@ -42,20 +42,38 @@
     </div>
 <?php wp_footer(); ?>
 <script src="build/index.js"></script>
-<div class="row search-overlay d-none">
-  <div class="col-12">
-    <div class="search-overlay_top">
-      <div class="container">
+<!-- <div class="container search-overlay d-none">
+  <div class="row mt-5">
+    <div class="col-11">
+      <div class="search-overlay_top">
         <input class="form-control me-2 search-term"
           type="search"
           placeholder="What are you looking for?"
-          aria-label="Pesquisar" id="search-term"/>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x search-overlay_close" viewBox="0 0 16 16" search-overlay_icon>
-          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-        </svg>
+          aria-label="Pesquisar" id="search-term"
+        />
       </div>
     </div>
+    <div class="col-1">
+      <span class="btn btn-outline-success search-overlay_close" type="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16" search-overlay_icon>
+          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </span>
   </div>
+</div> -->
+<div class="search-overlay">
+  <div class="search-overlay__top">
+    <div class="container">
+      <i class="fa fa-search search-overlay__icon" aria-hidden="true"></i>
+      <input type="text" class="search-term" placeholder="What are you looking for?" id="search-term">
+      <i class="fa fa-window-close search-overlay__close" aria-hidden="true"></i>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div id="search-overlay__results"></div>
+  </div>
+
 </div>
 </body>
 </html>
