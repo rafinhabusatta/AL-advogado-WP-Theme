@@ -90,14 +90,20 @@ class Search {
       clearTimeout(this.typingTimer)
       if (this.searchField.val()) {
         if (!this.isSpinnerVisible) {
-          this.resultsDiv.html(
-            '<div class="d-flex justify-content-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>'
-          )
+          this.resultsDiv.html(`
+            <div class="d-flex justify-content-center">
+              <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+            `)
           this.isSpinnerVisible = true
         }
         this.typingTimer = setTimeout(this.getResults.bind(this), 2000)
       } else {
-        this.resultsDiv.html('')
+        this.resultsDiv.html(`
+        <h2></h2>
+        `)
         this.isSpinnerVisible = false
       }
     }
@@ -105,8 +111,28 @@ class Search {
   }
 
   getResults() {
-    this.resultsDiv.html('Results go here')
-    this.isSpinnerVisible = false
+    $.getJSON(
+      'http://andradelacerdadvogado.dev.cc/wp-json/wp/v2/posts?search=' +
+        this.searchField.val(),
+      posts => {
+        this.resultsDiv.html(`
+        <h2>Informações Gerais</h2>
+        <ul class="results-list">
+          ${posts
+            .map(
+              item =>
+                `<li>
+                  <a href="${item.link}">
+                    ${item.title.rendered}
+                  </a>
+                </li>
+              `
+            )
+            .join('')}
+        </ul>
+        `)
+      }
+    )
   }
 
   keyPressDispatcher(e) {

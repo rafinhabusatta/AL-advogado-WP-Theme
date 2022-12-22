@@ -108,6 +108,10 @@ a:hover {
   color: var(--blue-500);
 }
 
+.results-list a {
+  color: #fff;
+}
+
 footer a {
   color: var(--white);
 }
