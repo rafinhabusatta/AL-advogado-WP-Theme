@@ -64,6 +64,7 @@ import $ from 'jquery'
 class Search {
   // 1. describe and create/initiate our object
   constructor() {
+    this.addSearchHTML()
     this.resultsDiv = $('#search-results')
     this.openButton = $('.js-search-trigger')
     this.closeButton = $('.search-overlay_close')
@@ -99,7 +100,7 @@ class Search {
             `)
           this.isSpinnerVisible = true
         }
-        this.typingTimer = setTimeout(this.getResults.bind(this), 2000)
+        this.typingTimer = setTimeout(this.getResults.bind(this), 750)
       } else {
         this.resultsDiv.html(`
         <h2></h2>
@@ -111,14 +112,24 @@ class Search {
   }
 
   getResults() {
-    $.getJSON(
-      'http://andradelacerdadvogado.dev.cc/wp-json/wp/v2/posts?search=' +
-        this.searchField.val(),
-      posts => {
+    $.when(
+      $.getJSON(
+        data.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.val()
+      ),
+      $.getJSON(
+        data.root_url + '/wp-json/wp/v2/pages?search=' + this.searchField.val()
+      )
+    ).then(
+      (posts, pages) => {
+        let resultadosCombinados = posts[0].concat(pages[0])
         this.resultsDiv.html(`
         <h2>Informações Gerais</h2>
-        <ul class="results-list">
-          ${posts
+        ${
+          resultadosCombinados.length
+            ? '<ul class="results-list">'
+            : '<p>Não há resultados</p>'
+        }
+          ${resultadosCombinados
             .map(
               item =>
                 `<li>
@@ -129,8 +140,14 @@ class Search {
               `
             )
             .join('')}
-        </ul>
+        ${resultadosCombinados.length ? '</ul>' : ''}
         `)
+        this.isSpinnerVisible = false
+      },
+      () => {
+        this.resultsDiv.html(
+          '<p>Algo deu errado, por favor tente novamente.</p>'
+        )
       }
     )
   }
@@ -152,8 +169,10 @@ class Search {
   openOverlay() {
     this.searchOverlay.removeClass('d-none')
     $('body').addClass('body-no-scroll')
+    this.searchField.val('')
     console.log('our open method just ran!')
     this.isOverlayOpen = true
+    setTimeout(() => this.searchField.focus(), 300)
   }
 
   closeOverlay() {
@@ -161,6 +180,33 @@ class Search {
     $('body').removeClass('body-no-scroll')
     console.log('our close method just ran!')
     this.isOverlayOpen = false
+  }
+
+  addSearchHTML() {
+    $('body').append(`
+    <div class="container-fluid search-overlay d-none">
+      <div class="row mt-5">
+        <div class="col-12 d-flex flex-row">
+          <input class="form-control me-2 search-term"
+            type="search"
+            placeholder="What are you looking for?"
+            aria-label="Pesquisar" id="search-term"
+            autocomplete="off"
+          />
+          <span class="btn btn-outline-success search-overlay_close" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16" search-overlay_icon>
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="row mt-5 text-white">
+        <div id="search-results" class="col-12">
+          
+        </div>
+      </div>
+    </div>
+    `)
   }
 }
 

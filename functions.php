@@ -54,6 +54,10 @@ function aladvogados_files() {
   wp_enqueue_script('aladvogados_main_js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
   wp_enqueue_script('googleMap', '//maps.googleapis.com/maps/api/js?key=AIzaSyB8SrX1XO1i1s6xEPiIBlm19cpoa35hA78', NULL, '1.0', true);
 
+  wp_localize_script('aladvogados_main_js', 'data', array(
+    'root_url' => get_site_url()
+  ));
+
 }
 add_action('wp_enqueue_scripts', 'aladvogados_files');
 

@@ -18,7 +18,7 @@
 </div>
 <main class="container">
   <div class="row mt-5">
-    <div class="col-12">
+    <div class="col-12 col-lg-6">
       <h2 class="fs-32 fs-lg-48 fw-semibold mb-4 position-relative">
         Sobre Nós<span class="shadow-text">Sobre Nós</span>
       </h2>
@@ -37,6 +37,9 @@
         soluções para as aposentadorias e pensões dos trabalhadores
         brasileiros.
       </p>
+    </div>
+    <div class="col-12 col-lg-6">
+      <img src="<?php echo get_template_directory_uri(); ?>/images/advogado.jpg" alt="Advogado" class="img-fluid bg-blue h-100 w-100">
     </div>
   </div>
   <div class="row mt-5">
