@@ -1,4 +1,4 @@
-<div class="container-fluid px-0 bg-blue">
+<div class="container-fluid px-lg-0 bg-blue">
   <footer class="d-flex flex-column align-items-center pt-3 mt-4 text-center text-white">
     <div class="row w-lg-100">
       <div class="col-12 col-lg-4">

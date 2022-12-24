@@ -135,9 +135,8 @@ class Search {
           ${resultadosCombinados.map(item => `<li>
                   <a href="${item.link}">
                     ${item.title.rendered}
-                  </a>
-                </li>
-              `).join('')}
+                  </a>  ${item.type == 'post' ? `by ${item.authorName}` : ''}
+                </li>`).join('')}
         ${resultadosCombinados.length ? '</ul>' : ''}
         `);
       this.isSpinnerVisible = false;

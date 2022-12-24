@@ -1,19 +1,19 @@
 <?php get_header();  ?>
-<div class="header-banner text-center text-lg-start bg-blue">
+<div class="header-banner text-center text-lg-start bg-blue themis">
   <div class="row h-100 m-auto container">
-    <div class="col-12 col-lg-6">
-      <h1 class="text-gold fw-bold mx-3  fs-lg-65">
+    <div class="col-12 col-lg-8">
+      <h1 class="text-gold fw-bold mx-3">
         Há 20 anos garantindo os direitos previdenciários dos cidadãos
         brasileiros
       </h1>
       <button type="button" class="btn btn-dark btn-al-advogados mt-3 mt-lg-5">Faça uma consulta gratuita</button>
       <button type="button" class="btn btn-dark btn-al-advogados mt-3 mt-lg-5">Entre em contato</button>
-      <div class="row mt-5 mt-lg-2 mt-xl-5 pt-0 pt-lx-5">
-        <div class="col-3 fw-bold text-gold"><p class="fs-lg-48">15K</p><span>casos ganhos</span></div>
-        <div class="col-3 fw-bold text-gold"><p class="fs-lg-48">15K</p><span>casos ganhos</span></div>  
+      <div class="row mt-5 mb-3 mt-lg-0 mb-lg-0 pt-0 d-flex align-content-end h-lg-50">
+        <div class="col-3 fw-bold text-gold"><p class="fs-32 fs-lg-48 fw-bold mb-0">15K</p><span class="fw-normal text-white fs-lg-18">casos ganhos</span></div>
+        <div class="col-3 fw-bold text-gold"><p class="fs-32 fs-lg-48 fw-bold mb-0">15K</p><span class="fw-normal text-white fs-lg-18">casos ganhos</span></div>  
       </div>
     </div>
-    <div class="col-lg-6 themis"></div>
+    <!-- <div class="col-lg-4 themis"></div> -->
   </div>
 </div>
 <main class="container">
@@ -22,21 +22,20 @@
       <h2 class="fs-32 fs-lg-48 fw-semibold mb-4 position-relative">
         Sobre Nós<span class="shadow-text">Sobre Nós</span>
       </h2>
-      <p class="text-justify">
-        Advogado com formação Acadêmica na Pontifícia Universidade Católica
-        de Porto Alegre-RS no ano de 1998, Carteira da OAB/RS 54.981 desde o
-        ano de 2002, atuando em conjunto com a Doutora Elisabete Maria Vaz
-        de Andrade, nos anos de 2003 a maio de 2013, na cidade de Porto
-        Alegre-RS. Possui especialização nas áreas de Direito do Trabalho e
-        Direito Previdenciário -Aposentadorias e Pensões do INSS, iniciando
-        a sua atuação também na cidade de Caxias do Sul, associado do
-        Instituto Brasileiro de Direito Previdenciário, uma associação civil
-        de cunho científico-jurídico, com foco na defesa do Direito
-        Previdenciário e por decorrência dos Aposentados e Pensionistas do
-        Regime Geral da Previdência Social. O estudo permanente em busca de
-        soluções para as aposentadorias e pensões dos trabalhadores
-        brasileiros.
-      </p>
+      <?php 
+        $homepageAboutUs = new WP_Query(array(
+          'posts_per_page' => 1,
+          'post_type' => 'page',
+          'pagename' => 'about-us'
+        ));
+        
+        while($homepageAboutUs->have_posts()) {
+          $homepageAboutUs->the_post(); ?>
+          <p class="text-justify">
+            <?php echo wp_strip_all_tags(get_the_content()); ?>
+          </p>
+        <?php }
+      ?>
     </div>
     <div class="col-12 col-lg-6">
       <img src="<?php echo get_template_directory_uri(); ?>/images/advogado.jpg" alt="Advogado" class="img-fluid bg-blue h-100 w-100">
@@ -136,7 +135,7 @@
       </div>
     </div>
   </div>
-  <div class="row mt-5 bg-blue-light">
+  <div class="row mt-5 p-5 text-white bg-blue-light">
     <div class="col-12 col-lg-6">
       <h2 class="fs-32 fs-lg-48 fw-semibold mb-4">Atendemos todo
         país remotamente!</h2>
@@ -150,7 +149,7 @@
           Whatsapp
         </button>
     </div>
-    <div class="col-12 col-6">
+    <div class="col-12 col-lg-6">
       <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d863.5915287956304!2d-51.2228087!3d-30.0263527!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9519791d64f85901%3A0xc56f8460c312c4f3!2sCondom%C3%ADnio%20Edif%C3%ADcio%20Coliseu!5e0!3m2!1spt-BR!2sbr!4v1670796572077!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>

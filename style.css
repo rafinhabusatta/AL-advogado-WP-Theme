@@ -127,7 +127,7 @@ li {
 /* Personalized Classes */
 
 .header-banner {
-  height: 430px;
+  /* height: 430px; */
   /* text-align: center;
   display: grid;
   grid-template-columns: 30% 25% 45%;
@@ -137,6 +137,7 @@ li {
 .header-banner h1 {
   max-width: 970px;
   margin: auto;
+  font-size: 32px;
 }
 
 .shadow-text {
@@ -147,9 +148,11 @@ li {
   left: 0px;
 }
 
-.themis {
-  background-image: url(assets/SVG/themis.svg);
-}
+/* .themis {
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-image: url(assets/SVG/themis-mobile.svg);
+} */
 
 .search-overlay {
   position: fixed;
@@ -174,26 +177,18 @@ li {
   overflow: hidden;
 }
 
-.w-lg-100 {
-  width: auto;
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-}
-
-// Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  body {
-    background-color: black !important;
-  }
-}
-.fs-lg-65 {
-  font-size: 30px;
 }
 
-// Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
+  .h-lg-50 {
+    height: 50%;
+  }
+
+  .fs-lg-18 {
+    font-size: 18px;
+  }
+
   .fs-lg-48 {
     font-size: 48px;
   }
@@ -205,12 +200,24 @@ li {
   .w-lg-100 {
     width: 100%;
   }
+
+  .header-banner {
+    height: 85vh;
+  }
+
+  .header-banner h1 {
+    font-size: 65px;
+  }
+
+  .themis {
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-image: url(assets/SVG/themis.svg);
+  }
 }
 
-// X-Large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
 }
 
-// XX-Large devices (larger desktops, 1400px and up)
 @media (min-width: 1400px) {
 }

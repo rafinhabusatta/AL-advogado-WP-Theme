@@ -135,9 +135,8 @@ class Search {
                 `<li>
                   <a href="${item.link}">
                     ${item.title.rendered}
-                  </a>
-                </li>
-              `
+                  </a>  ${item.type == 'post' ? `by ${item.authorName}` : ''}
+                </li>`
             )
             .join('')}
         ${resultadosCombinados.length ? '</ul>' : ''}
