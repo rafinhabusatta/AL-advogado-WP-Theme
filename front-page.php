@@ -1,20 +1,6 @@
 <?php get_header();  ?>
 <div class="header-banner text-center text-lg-start bg-blue themis">
-  <div class="row h-100 m-auto container">
-    <div class="col-12 col-lg-8">
-      <h1 class="text-gold fw-bold mx-3">
-        Há 20 anos garantindo os direitos previdenciários dos cidadãos
-        brasileiros
-      </h1>
-      <button type="button" class="btn btn-dark btn-al-advogados mt-3 mt-lg-5">Faça uma consulta gratuita</button>
-      <button type="button" class="btn btn-dark btn-al-advogados mt-3 mt-lg-5">Entre em contato</button>
-      <div class="row mt-5 mb-3 mt-lg-0 mb-lg-0 pt-0 d-flex align-content-end h-lg-50">
-        <div class="col-3 fw-bold text-gold"><p class="fs-32 fs-lg-48 fw-bold mb-0">15K</p><span class="fw-normal text-white fs-lg-18">casos ganhos</span></div>
-        <div class="col-3 fw-bold text-gold"><p class="fs-32 fs-lg-48 fw-bold mb-0">15K</p><span class="fw-normal text-white fs-lg-18">casos ganhos</span></div>  
-      </div>
-    </div>
-    <!-- <div class="col-lg-4 themis"></div> -->
-  </div>
+  <?php get_template_part('template-parts/content', 'homeBanner');?>
 </div>
 <main class="container">
   <div class="row mt-5">
@@ -47,91 +33,32 @@
         Especialidades<span class="shadow-text">Especialidades</span>
       </h2>
       <div class="row row-cols-1 row-cols-md-3 g-4 text-center">
-        <div class="col">
-          <div class="card bg-blue text-white h-100">
-            <div class="card-body">
-              <h5 class="card-title fw-bold">
-                Aposentadorias e Planejamento
-              </h5>
-              <p class="card-text">
-                Aposentadoria rural e urbana, por idade, tempo de
-                contribuição, deficiência, professor, perculosidade e
-                insalubridade, e planejamento de aposentadoria.
-              </p>
-            </div>
-            <div class="card-footer bg-blue border-top-0">
-                <a href="#" class="btn btn-gold">Saiba mais</a>
+        <?php
+          $homepageSpecialties = new WP_QUERY(array(
+            'posts_per_page' => 6,
+            'post_type' => 'especialidade',
+            'orderby' => 'title',
+            'order' => 'ASC'
+          ));
+          while($homepageSpecialties->have_posts()) {
+            $homepageSpecialties->the_post(); 
+        ?>
+          <div class="col">
+            <div class="card bg-blue text-white h-100">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">
+                  <?php the_title(); ?>
+                </h5>
+                <p class="card-text">
+                  <?php the_content(); ?>
+                </p>
               </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card bg-blue text-white h-100">
-            <div class="card-body">
-              <h5 class="card-title fw-bold">Pensões</h5>
-              <p class="card-text">
-                Pensões por morte rural e urbana, especial por hanseníase,
-                síndrome da Talidomida e crianças com Síndrome Congênita do
-                Zika Vírus.
-              </p>
+              <div class="card-footer bg-blue border-top-0 pb-4 mb-2">
+                  <a href="#" class="btn btn-gold">Saiba mais</a>
+                </div>
             </div>
-            <div class="card-footer bg-blue border-top-0">
-                <a href="#" class="btn btn-gold">Saiba mais</a>
-              </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="card bg-blue text-white h-100">
-            <div class="card-body">
-              <h5 class="card-title fw-bold">Auxílios</h5>
-              <p class="card-text">
-                Acidente, doença, reclusão rural e urbana, acidente de
-                trabalho.
-              </p>
-            </div>
-            <div class="card-footer bg-blue border-top-0">
-                <a href="#" class="btn btn-gold">Saiba mais</a>
-              </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card bg-blue text-white h-100">
-            <div class="card-body">
-              <h5 class="card-title fw-bold">Rural</h5>
-              <p class="card-text">
-                lorem ipsumlorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                lorem ipsum lorem ipsum lorem ipsum
-              </p>
-            </div>
-            <div class="card-footer bg-blue border-top-0">
-                <a href="#" class="btn btn-gold">Saiba mais</a>
-              </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card bg-blue text-white h-100">
-            <div class="card-body">
-              <h5 class="card-title fw-bold">Interdição - Curador 
-                de pessoa incapaz</h5>
-              <p class="card-text">
-                lorem ipsumlorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                lorem ipsum lorem ipsum lorem ipsum
-              </p>
-            </div>
-            <div class="card-footer bg-blue border-top-0">
-                <a href="#" class="btn btn-gold">Saiba mais</a>
-              </div>
-          </div>
-        </div>
-        <div class="col"><div class="card bg-blue text-white h-100">
-          <div class="card-body">
-            <h5 class="card-title fw-bold">Benefícios Assistenciais</h5>
-            <p class="card-text">
-              LOAS/BPC, idoso, deficiência, trabalhador portuário avulso, reativação de benefício suspenso.
-            </p>
-            <div class="card-footer bg-blue border-top-0">
-              <a href="#" class="btn btn-gold">Saiba mais</a>
-            </div>
-          </div></div>
+        <?php } ?>
       </div>
     </div>
   </div>
