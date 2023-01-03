@@ -20,7 +20,7 @@
       // ));
     ?>
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="<?php echo site_url(); ?>">
         <img src="<?php echo get_theme_file_uri('assets/Logo.svg'); ?>" alt="Logo" height="100" />
       </a>
       <button
@@ -40,19 +40,10 @@
             <a <?php if (is_page('home') or wp_get_post_parent_id(0) == 31) echo 'class="nav-link active" aria-current="page"' ?> class="nav-link" href="<?php echo site_url(); ?>">Home</a>
           </li>
           <li class="nav-item">
-            <a <?php if (is_page('about-us') or wp_get_post_parent_id(0) == 10) echo 'class="nav-link active" aria-current="page"' ?> class="nav-link" href="<?php echo site_url('/about-us'); ?>">Sobre</a>
+            <a <?php if (is_page('sobre') or wp_get_post_parent_id(0) == 10) echo 'class="nav-link active" aria-current="page"' ?> class="nav-link" href="<?php echo site_url('/sobre'); ?>">Sobre</a>
           </li>
           <li class="nav-item">
             <a <?php if ( get_post_type() == 'post') echo 'class="nav-link active" aria-current="page"' ?> class="nav-link" href="<?php echo site_url('/noticias'); ?>">Notícias</a>
-          </li>
-          <li class="nav-item">
-            <a <?php if ( get_post_type() == 'event' OR is_page('past-events')) echo 'class="nav-link active" aria-current="page"' ?> class="nav-link" href="<?php echo get_post_type_archive_link('event'); ?>">Eventos</a>
-          </li>
-          <li class="nav-item">
-            <a <?php if ( get_post_type() == 'program' OR is_page('programs')) echo 'class="nav-link active" aria-current="page"' ?> class="nav-link" href="<?php echo get_post_type_archive_link('program'); ?>">Programas</a>
-          </li>
-          <li class="nav-item">
-            <a <?php if ( get_post_type() == 'campus' OR is_page('campuses')) echo 'class="nav-link active" aria-current="page"' ?> class="nav-link" href="<?php echo get_post_type_archive_link('campus'); ?>">Campi</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Contato</a>
@@ -65,7 +56,7 @@
             placeholder="Pesquisar"
             aria-label="Pesquisar"
           /> -->
-          <span class="btn btn-outline-success js-search-trigger" type="submit">
+          <span class="btn btn-outline-light js-search-trigger" type="submit">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
               <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
             </svg>

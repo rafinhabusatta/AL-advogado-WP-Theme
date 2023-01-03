@@ -1,6 +1,21 @@
 <?php get_header();  ?>
+<?php get_template_part('template-parts/content', 'specialty-modal');?>
 <div class="header-banner text-center text-lg-start bg-blue themis">
   <?php get_template_part('template-parts/content', 'homeBanner');?>
+</div>
+<div class="contact-buttons">
+  <a href="https://web.whatsapp.com/send?phone=5551981917162" target="_blank" class="btn btn-gold">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+      <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+    </svg>
+    WhatsApp
+  </a>
+  <a href="mailto:marcelo@andradeelacerdaadvogados.com.br" target="_blank" class="btn btn-gold">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+    </svg>
+    Email
+  </a>
 </div>
 <main class="container">
   <div class="row mt-5">
@@ -12,7 +27,7 @@
         $homepageAboutUs = new WP_Query(array(
           'posts_per_page' => 1,
           'post_type' => 'page',
-          'pagename' => 'about-us'
+          'pagename' => 'sobre'
         ));
         
         while($homepageAboutUs->have_posts()) {
@@ -35,7 +50,7 @@
       <div class="row row-cols-1 row-cols-md-3 g-4 text-center">
         <?php
           $homepageSpecialties = new WP_QUERY(array(
-            'posts_per_page' => 6,
+            'posts_per_page' => -1,
             'post_type' => 'especialidade',
             'orderby' => 'title',
             'order' => 'ASC'
@@ -54,8 +69,10 @@
                 </p>
               </div>
               <div class="card-footer bg-blue border-top-0 pb-4 mb-2">
-                  <a href="#" class="btn btn-gold">Saiba mais</a>
-                </div>
+                <button type="button" class="btn btn-gold" data-bs-toggle="modal" data-bs-target="#Modal<?php echo get_the_ID(); ?>">
+                  Saiba mais
+                </button>
+              </div>
             </div>
           </div>
         <?php } ?>
@@ -82,8 +99,8 @@
   </div>
   <div class="row mt-5">
     <div class="col-12 col-lg-6">
-      <h2 class="fs-32 fw-bold mb-4 text-blue">PLANEJE A SUA APOSENTADORIA CONOSCO</h2>
-        <p class="text-justify">
+      <h2 class="fs-32 fs-lg-65 fw-bold mb-4 text-blue">PLANEJE A SUA APOSENTADORIA CONOSCO</h2>
+        <p class="text-justify fs-lg-32">
           Fazemos um estudo de projeção financeira para que você possa aproveitar sua aposentadoria ao máximo!
         </p>
         <button type="button" class="btn btn-dark">
@@ -95,6 +112,17 @@
     </div>
     <div class="d-none d-lg-block col-6">
       <img class="img-fluid" src="<?php echo get_theme_file_uri('assets/SVG/investing.svg'); ?>" alt="Ilustração">
+  </div>
+  <div class="row mt-5">
+    <div class="col-12 col-lg-6">
+      
+    </div>
+    <div class="col-12 col-lg-6 text-center">
+      <p>Entre em contato para tirar dúvidas ou receber uma avaliação gratuita.</p>
+      <p>Deseja entrar em contato por telefone?</p>
+      <p>Contate-nos pelo WhatsApp ou pelo telefone:</p>
+      <p class="fw-bold fs-48">(51) 3212.8822</p>
+    </div>
   </div>
   <div class="row mt-5">
     <div class="col-12">
@@ -112,11 +140,11 @@
             
             <div class="col-12 col-md-6 col-lg-4">
               <div class="card mb-4">
-                <div class="card-body">
-                  <h5 class="card-title"><?php the_title(); ?></h5>
-                  <p>Posted by <?php the_author_posts_link(); ?> on <?php the_time('d/m/Y'); ?> in <?php echo get_the_category_list(', '); ?></p>
-                  <p class="card-text"><?php echo wp_trim_words(get_the_content(), 18); ?></p>
-                  <a href="<?php the_permalink(); ?>" class="btn btn-primary">Read more</a>
+                <div class="card-body px-32 py-4 text-end br-8 bg-blue text-white">
+                  <h5 class="card-title fs-32 text-center"><?php the_title(); ?></h5>
+                  <p class="text-start"><?php the_time('d/m/Y'); ?></p>
+                  <p class="card-text fs-18 text-center"><?php echo wp_trim_words(get_the_content(), 18); ?></p>
+                  <a href="<?php the_permalink(); ?>" class="btn btn-gold text-end">Leia mais</a>
                 </div>
               </div>
             </div>
@@ -125,39 +153,6 @@
         ?>
       </div>
       <button class="btn btn-dark"><a href="<?php echo site_url('/noticias'); ?>">Ver todas as notícias</a></button>
-    </div>
-  </div>
-  <div class="row mt-5">
-    <div class="col-12">
-      <h2 class="fs-32 fs-lg-48 fw-semibold mb-4 position-relative">
-        Eventos<span class="shadow-text">Eventos</span>
-      </h2>
-      <div class="row">
-        <?php
-          $today = date('Ymd');
-          $homepageEvents = new WP_QUERY(array(
-            'posts_per_page' => 3,
-            'post_type' => 'event',
-            'meta_key' => 'event_date',
-            'orderby' => 'meta_value_num',
-            'order' => 'ASC',
-            'meta_query' => array(
-              array(
-                'key' => 'event_date',
-                'compare' => '>=',
-                'value' => $today,
-                'type' => 'numeric'
-              )
-            )
-          ));
-
-          while($homepageEvents->have_posts()) {
-            $homepageEvents->the_post(); 
-            get_template_part('template-parts/content', 'event');
-            } wp_reset_postdata();
-          ?>
-      </div>
-      <button class="btn btn-dark"><a href="<?php echo get_post_type_archive_link('event'); ?>">Ver todos os eventos</a></button>
     </div>
   </div>
 </main>

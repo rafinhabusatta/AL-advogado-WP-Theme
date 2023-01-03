@@ -36,7 +36,7 @@
           <li><a href="#">Notícias</a></li>
         </ul>
       </div>
-      <p class="col-12 bg-blue-medium mb-0 text-muted">&copy; 2022 Andrade & Lacerda Advogados</p>
+      <p class="col-12 bg-blue-medium mb-0 text-muted h-68 py-auto d-flex align-items-center justify-content-center">&copy; 2022 Andrade & Lacerda Advogados</p>
     </div>
   </footer>
 </div>

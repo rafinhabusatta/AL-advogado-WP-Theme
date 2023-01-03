@@ -6,6 +6,18 @@
 
 /* Bootstrap Extention Classes */
 
+.br-8 {
+  border-radius: 8px;
+}
+
+.px-32 {
+  padding: 32px;
+}
+
+.h-68 {
+  height: 68px;
+}
+
 .bg-blue-light {
   background-color: var(--blue-100);
 }
@@ -61,6 +73,10 @@
   margin-bottom: 128px;
 }
 
+.fs-18 {
+  font-size: 18px;
+}
+
 .fs-32 {
   font-size: 32px;
 }
@@ -101,7 +117,7 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--blue-800);
+  color: var(--white);
 }
 
 a:hover {
@@ -148,12 +164,6 @@ li {
   left: 0px;
 }
 
-/* .themis {
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-image: url(assets/SVG/themis-mobile.svg);
-} */
-
 .search-overlay {
   position: fixed;
   top: 0;
@@ -177,6 +187,21 @@ li {
   overflow: hidden;
 }
 
+/* Contact Buttons */
+.contact-buttons {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.contact-buttons a {
+  display: block;
+  margin-bottom: 10px;
+  width: 143px;
+  z-index: 99999;
+  border-radius: 8px 0 0 8px;
+}
+
 @media (min-width: 768px) {
 }
 
@@ -193,8 +218,12 @@ li {
     font-size: 48px;
   }
 
-  .fs-32 {
+  .fs-lg-65 {
     font-size: 65px;
+  }
+
+  .fs-lg-32 {
+    font-size: 32px;
   }
 
   .w-lg-100 {
