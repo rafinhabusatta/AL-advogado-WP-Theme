@@ -115,29 +115,8 @@
       <img class="" src="<?php echo get_theme_file_uri('assets/investing.svg'); ?>" alt="Ilustração" height="425">
     </div>
   </div>
-  <div class="row mt-5 bg-gray p-5 br-8">
+  <div class="row mt-5 bg-gray p-5 br-8" id="contato">
     <div class="col-12 col-lg-5">
-      <!-- <form class="bg-blue-light p-5 br-8">
-        <h2 class="fs-32 fs-lg-48 fw-semibold mb-4 text-white">Entre em contato</h2>
-        <div class="mb-3">
-          <label for="mainFormName" class="form-label">Nome completo</label>
-          <input type="text" class="form-control" id="mainFormName" required>
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email</label>
-          <input type="email" class="form-control" id="mainFormEmail" aria-describedby="emailHelp" required>
-          <div id="emailHelp" class="form-text text-white">Nós nunca divulgaremos seu email para ninguém.</div>
-        </div>
-        <div class="mb-3">
-          <label for="mainFormPhone" class="form-label">Telefone</label>
-          <input type="tel" class="form-control" id="mainFormPhone">
-        </div>
-        <div class="mb-3">
-          <label for="mainFormMessage" class="form-label">Mensagem</label>
-          <textarea class="form-control" id="mainFormMessage" rows="6" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-dark w-100">Enviar</button>
-      </form> -->
       <?php Ninja_Forms()->display(2) ?>
     </div>
     <div class="col-12 col-lg-7 text-center d-flex flex-column justify-content-center">
@@ -159,8 +138,8 @@
             // 'category_name' => 'noticias'
             //'post_type' => 'noticias' ou page
           while ($homepagePosts->have_posts()) {
-            $homepagePosts->the_post(); ?>
-            
+            $homepagePosts->the_post(); 
+          ?>
             <div class="col-12 col-md-6 col-lg-4">
               <div class="card mb-4 mb-lg-0 h-lg-100 border-0 bg-blue">
                 <div class="card-body px-32 py-4 text-end br-8 text-white">
@@ -173,9 +152,7 @@
                 </div>
               </div>
             </div>
-
-          <?php } wp_reset_postdata();
-        ?>
+        <?php } wp_reset_postdata(); ?>
       </div>
       <a href="<?php echo site_url('/noticias'); ?>" class="btn btn-dark">Ver todas as notícias</a>
     </div>

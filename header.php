@@ -39,14 +39,21 @@
           <li class="nav-item">
             <a <?php if (is_page('home') or wp_get_post_parent_id(0) == 31) echo 'class="nav-link active" aria-current="page"' ?> class="nav-link" href="<?php echo site_url(); ?>">Home</a>
           </li>
-          <li class="nav-item">
-            <a <?php if (is_page('sobre') or wp_get_post_parent_id(0) == 10) echo 'class="nav-link active" aria-current="page"' ?> class="nav-link" href="<?php echo site_url('/sobre'); ?>">Sobre</a>
-          </li>
+          <!-- <li class="nav-item">
+            <a <?php //if (is_page('sobre') or wp_get_post_parent_id(0) == 10) echo 'class="nav-link active" aria-current="page"' ?> class="nav-link" href="<?php //echo site_url('/sobre'); ?>">Sobre</a>
+          </li> -->
           <li class="nav-item">
             <a <?php if ( get_post_type() == 'post') echo 'class="nav-link active" aria-current="page"' ?> class="nav-link" href="<?php echo site_url('/noticias'); ?>">Notícias</a>
           </li>
+          <?php 
+            $contato = NULL;
+            if(is_page('home'))
+              $contato = '#contato';
+            else 
+              $contato = site_url() . '/#contato';
+          ?>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contato</a>
+            <a class="nav-link" href="<?php echo $contato; ?>">Contato</a>
           </li>
         </ul>
         <form class="d-flex" role="search">
