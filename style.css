@@ -4,107 +4,6 @@
   Version: 1.0
 */
 
-/* Bootstrap Extention Classes */
-
-.br-8 {
-  border-radius: 8px;
-}
-
-.px-32 {
-  padding: 32px;
-}
-
-.h-68 {
-  height: 68px;
-}
-
-.bg-blue-light {
-  background-color: var(--blue-100);
-}
-
-.bg-blue {
-  background-color: var(--blue-300);
-}
-
-.bg-blue-medium {
-  background-color: var(--blue-500);
-}
-
-.bg-blue-dark {
-  background-color: var(--blue-800);
-}
-
-.bg-gray {
-  background-color: var(--gray);
-}
-
-.btn-al-advogados {
-  width: 255px;
-}
-
-.btn-gold {
-  background-color: var(--gold);
-  color: var(--white);
-}
-
-.btn-dark {
-  background-color: var(--blue-800);
-  color: var(--white);
-}
-
-.text-white {
-  color: var(--white);
-}
-
-.text-gold {
-  color: var(--gold);
-}
-
-.text-blue {
-  color: var(--blue-500);
-}
-
-.text-justify {
-  text-align: justify;
-}
-
-.my-128 {
-  margin-top: 128px;
-  margin-bottom: 128px;
-}
-
-.fs-18 {
-  font-size: 18px;
-}
-
-.fs-32 {
-  font-size: 32px;
-}
-
-.fs-48 {
-  font-size: 48px;
-}
-
-.g-column-1 {
-  grid-column: 1;
-}
-
-.g-column-2 {
-  grid-column: 2;
-}
-
-.g-row-1 {
-  grid-row: 1;
-}
-
-.g-row-2 {
-  grid-row: 2;
-}
-
-.g-column-1-span-2 {
-  grid-column: 1 / span 2;
-}
-
 body {
   --blue-800: #0d1a26;
   --blue-500: #1c2f40;
@@ -117,11 +16,12 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--white);
+  border: none !important;
+  color: var(--blue-800);
 }
 
 a:hover {
-  color: var(--blue-500);
+  color: var(--blue-800);
 }
 
 .results-list a {
@@ -140,8 +40,6 @@ li {
   list-style: none;
 }
 
-/* Personalized Classes */
-
 .header-banner {
   /* height: 430px; */
   /* text-align: center;
@@ -159,9 +57,10 @@ li {
 .shadow-text {
   position: absolute;
   font-size: 48px;
+  font-weight: 400;
   filter: opacity(10%);
   top: -12px;
-  left: 0px;
+  left: -10px;
 }
 
 .search-overlay {
@@ -202,34 +101,22 @@ li {
   border-radius: 8px 0 0 8px;
 }
 
+.background-profile {
+  background-image: url(assets/background-profile.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#nf-form-title-2 h3 {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--white);
+}
+
 @media (min-width: 768px) {
 }
 
 @media (min-width: 992px) {
-  .h-lg-50 {
-    height: 50%;
-  }
-
-  .fs-lg-18 {
-    font-size: 18px;
-  }
-
-  .fs-lg-48 {
-    font-size: 48px;
-  }
-
-  .fs-lg-65 {
-    font-size: 65px;
-  }
-
-  .fs-lg-32 {
-    font-size: 32px;
-  }
-
-  .w-lg-100 {
-    width: 100%;
-  }
-
   .header-banner {
     height: 85vh;
   }
@@ -238,10 +125,24 @@ li {
     font-size: 50px;
   }
 
+  .generic-banner {
+    height: 350px;
+    color: var(--white);
+  }
+
   .themis {
     background-repeat: no-repeat;
     background-position: right top;
-    background-image: url(assets/SVG/themis.svg);
+    background-image: url(assets/themis.svg);
+  }
+
+  .shadow-text {
+    font-size: 110px;
+    top: -60px;
+  }
+
+  #nf-form-title-2 h3 {
+    font-size: 48px;
   }
 }
 

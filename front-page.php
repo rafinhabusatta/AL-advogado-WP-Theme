@@ -18,9 +18,9 @@
   </a>
 </div>
 <main class="container">
-  <div class="row mt-5">
+  <div class="row mt-5 pt-lg-5">
     <div class="col-12 col-lg-6">
-      <h2 class="fs-32 fs-lg-48 fw-semibold mb-4 position-relative">
+      <h2 class="fs-32 fs-lg-48 fw-bold mb-4 position-relative">
         Sobre Nós<span class="shadow-text">Sobre Nós</span>
       </h2>
       <?php 
@@ -32,19 +32,19 @@
         
         while($homepageAboutUs->have_posts()) {
           $homepageAboutUs->the_post(); ?>
-          <p class="text-justify">
+          <p class="text-justify fs-lg-24">
             <?php echo wp_strip_all_tags(get_the_content()); ?>
           </p>
         <?php }
       ?>
     </div>
-    <div class="col-12 col-lg-6">
-      <img src="<?php echo get_template_directory_uri(); ?>/images/advogado.jpg" alt="Advogado" class="img-fluid bg-blue h-100 w-100">
+    <div class="col-12 col-lg-6 background-profile text-center d-flex align-items-center justify-content-center">
+      <img src="<?php echo get_template_directory_uri(); ?>/images/profile2.png" alt="Advogado" class="" height="580">
     </div>
   </div>
-  <div class="row mt-5">
+  <div class="row mt-5 pt-lg-5">
     <div class="col-12">
-      <h2 class="fs-32 fs-lg-48 fw-semibold mb-4 position-relative">
+      <h2 class="fs-32 fs-lg-48 fw-bold mb-4 position-relative">
         Especialidades<span class="shadow-text">Especialidades</span>
       </h2>
       <div class="row row-cols-1 row-cols-md-3 g-4 text-center">
@@ -79,57 +79,80 @@
       </div>
     </div>
   </div>
-  <div class="row mt-5 p-5 text-white bg-blue-light">
-    <div class="col-12 col-lg-6">
-      <h2 class="fs-32 fs-lg-48 fw-semibold mb-4">Atendemos todo
-        país remotamente!</h2>
-        <p class="text-justify">
-          Estamos localizados na praça osvaldo cruz 15, na sala 1905, prontos para atender você! Também estamos disponível online através do whatsapp.
-        </p>
-        <button type="button" class="btn btn-dark">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-          </svg>
-          Whatsapp
-        </button>
+  <div class="row mt-5 mx-0 p-5 text-white bg-blue-light br-8">
+    <div class="col-12 col-lg-6 p-5">
+      <h2 class="fs-32 fs-lg-48 mb-4">Atendemos todo
+        país remotamente!
+      </h2>
+      <p class="text-justify fs-lg-24">
+        Estamos localizados na praça osvaldo cruz 15, na sala 1905, prontos para atender você! Também estamos disponível online através do whatsapp.
+      </p>
+      <a href="https://web.whatsapp.com/send?phone=5551981917162" target="_blank" class="btn btn-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+          <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+        WhatsApp
+      </a>
     </div>
-    <div class="col-12 col-lg-6">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d863.5915287956304!2d-51.2228087!3d-30.0263527!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9519791d64f85901%3A0xc56f8460c312c4f3!2sCondom%C3%ADnio%20Edif%C3%ADcio%20Coliseu!5e0!3m2!1spt-BR!2sbr!4v1670796572077!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="col-12 col-lg-6 p-5">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13817.464293471843!2d-51.2222615!3d-30.0263539!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x31095e2b67fd9055!2sAndrade%20%26%20Lacerda%20Advogados!5e0!3m2!1spt-BR!2sbr!4v1672747017099!5m2!1spt-BR!2sbr" width="100%" height="333" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
   <div class="row mt-5">
     <div class="col-12 col-lg-6">
       <h2 class="fs-32 fs-lg-65 fw-bold mb-4 text-blue">PLANEJE A SUA APOSENTADORIA CONOSCO</h2>
-        <p class="text-justify fs-lg-32">
-          Fazemos um estudo de projeção financeira para que você possa aproveitar sua aposentadoria ao máximo!
-        </p>
-        <button type="button" class="btn btn-dark">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-          </svg>
-          Whatsapp
-        </button>
+      <p class="text-justify fs-lg-24">
+        Fazemos um estudo de projeção financeira para que você possa aproveitar sua aposentadoria ao máximo!
+      </p>
+      <a href="https://web.whatsapp.com/send?phone=5551981917162" target="_blank" class="btn btn-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+          <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+        WhatsApp
+      </a>
     </div>
     <div class="d-none d-lg-block col-6">
-      <img class="img-fluid" src="<?php echo get_theme_file_uri('assets/SVG/investing.svg'); ?>" alt="Ilustração">
-  </div>
-  <div class="row mt-5">
-    <div class="col-12 col-lg-6">
-      
+      <img class="" src="<?php echo get_theme_file_uri('assets/investing.svg'); ?>" alt="Ilustração" height="425">
     </div>
-    <div class="col-12 col-lg-6 text-center">
+  </div>
+  <div class="row mt-5 bg-gray p-5 br-8">
+    <div class="col-12 col-lg-5">
+      <!-- <form class="bg-blue-light p-5 br-8">
+        <h2 class="fs-32 fs-lg-48 fw-semibold mb-4 text-white">Entre em contato</h2>
+        <div class="mb-3">
+          <label for="mainFormName" class="form-label">Nome completo</label>
+          <input type="text" class="form-control" id="mainFormName" required>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email</label>
+          <input type="email" class="form-control" id="mainFormEmail" aria-describedby="emailHelp" required>
+          <div id="emailHelp" class="form-text text-white">Nós nunca divulgaremos seu email para ninguém.</div>
+        </div>
+        <div class="mb-3">
+          <label for="mainFormPhone" class="form-label">Telefone</label>
+          <input type="tel" class="form-control" id="mainFormPhone">
+        </div>
+        <div class="mb-3">
+          <label for="mainFormMessage" class="form-label">Mensagem</label>
+          <textarea class="form-control" id="mainFormMessage" rows="6" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark w-100">Enviar</button>
+      </form> -->
+      <?php Ninja_Forms()->display(2) ?>
+    </div>
+    <div class="col-12 col-lg-7 text-center d-flex flex-column justify-content-center">
       <p>Entre em contato para tirar dúvidas ou receber uma avaliação gratuita.</p>
       <p>Deseja entrar em contato por telefone?</p>
       <p>Contate-nos pelo WhatsApp ou pelo telefone:</p>
       <p class="fw-bold fs-48">(51) 3212.8822</p>
     </div>
   </div>
-  <div class="row mt-5">
+  <div class="row mt-5 pt-lg-5">
     <div class="col-12">
       <h2 class="fs-32 fs-lg-48 fw-semibold mb-4 position-relative">
         Últimas notícias<span class="shadow-text">Últimas notícias</span>
       </h2>
-      <div class="row">
+      <div class="row mb-4">
         <?php
           $homepagePosts = new WP_Query(array(
             'posts_per_page' => 3));
@@ -139,12 +162,14 @@
             $homepagePosts->the_post(); ?>
             
             <div class="col-12 col-md-6 col-lg-4">
-              <div class="card mb-4">
-                <div class="card-body px-32 py-4 text-end br-8 bg-blue text-white">
+              <div class="card mb-4 mb-lg-0 h-lg-100 border-0 bg-blue">
+                <div class="card-body px-32 py-4 text-end br-8 text-white">
                   <h5 class="card-title fs-32 text-center"><?php the_title(); ?></h5>
                   <p class="text-start"><?php the_time('d/m/Y'); ?></p>
                   <p class="card-text fs-18 text-center"><?php echo wp_trim_words(get_the_content(), 18); ?></p>
-                  <a href="<?php the_permalink(); ?>" class="btn btn-gold text-end">Leia mais</a>
+                </div>
+                <div class="card-footer br-8 border-0 bg-blue text-end pb-4">
+                  <a href="<?php the_permalink(); ?>" class="btn btn-gold">Leia mais</a>
                 </div>
               </div>
             </div>
@@ -152,7 +177,7 @@
           <?php } wp_reset_postdata();
         ?>
       </div>
-      <button class="btn btn-dark"><a href="<?php echo site_url('/noticias'); ?>">Ver todas as notícias</a></button>
+      <a href="<?php echo site_url('/noticias'); ?>" class="btn btn-dark">Ver todas as notícias</a>
     </div>
   </div>
 </main>

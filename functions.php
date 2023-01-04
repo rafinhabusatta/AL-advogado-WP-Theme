@@ -22,13 +22,13 @@ function pageBanner($args = NULL) {
     if (get_field('page_banner_background_image') AND !is_archive() AND !is_home()) {
       $args['photo'] = get_field('page_banner_background_image')['sizes']['pageBanner'];
     } else {
-      $args['photo'] = get_theme_file_uri('/images/ocean.jpg');
+      $args['photo'] = get_theme_file_uri('/assets/bg-generic.svg');
     }
   }
 
   ?>
   <div class="container-fluid">
-    <div class="row bg-blue header-banner text-center" style="background-image: url(<?php echo $args['photo']?>); background-repeat: no-repeat; background-size: cover;">
+    <div class="row bg-blue header-banner generic-banner text-center" style="background-image: url(<?php echo $args['photo']?>); background-repeat: no-repeat; background-size: cover;">
       <div class="col-12">
         <div class="row mx-0 mx-md-4 px-2">
           <div class="col-12 px-md-0">
@@ -59,6 +59,7 @@ function aladvogados_files() {
   wp_enqueue_style('google_fonts', '//fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
   wp_enqueue_style('bootstrap_css', '//cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css');
   wp_enqueue_style('aladvogados_main_styles', get_stylesheet_uri());
+  wp_enqueue_style('aladvogados_extra_styles', get_theme_file_uri('/css/bootstrap_extension.css'));
   wp_enqueue_script('bootstrap_js', '//cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', NULL, '1.0', true);
   wp_enqueue_script('aladvogados_main_js', get_theme_file_uri('/build/index.js'), array('jquery'), '1.0', true);
   wp_enqueue_script('googleMap', '//maps.googleapis.com/maps/api/js?key=AIzaSyB8SrX1XO1i1s6xEPiIBlm19cpoa35hA78', NULL, '1.0', true);
@@ -81,30 +82,6 @@ function aladvogados_features() {
   add_image_size('pageBanner', 1500, 350, true);
 }
 add_action('after_setup_theme', 'aladvogados_features');
-
-function aladvogados_adjust_queries($query) {
-  if (!is_admin() AND is_post_type_archive('program') AND $query->is_main_query()) {
-    $query->set('orderby', 'title');
-    $query->set('order', 'ASC');
-    $query->set('posts_per_page', -1);
-  }
-
-  if(!is_admin() AND is_post_type_archive('event') AND $query->is_main_query()) {
-    $today = date('Ymd');
-    $query->set('meta_key', 'event_date');
-    $query->set('orderby', 'meta_value_num');
-    $query->set('order', 'ASC');
-    $query->set('meta_query', array(
-      array(
-        'key' => 'event_date',
-        'compare' => '>=',
-        'value' => $today,
-        'type' => 'numeric'
-      )
-      ));
-  }
-}
-add_action('pre_get_posts', 'aladvogados_adjust_queries');
 
 function aladvogadosMapKey($api) {
   $api['key'] = 'AIzaSyB8SrX1XO1i1s6xEPiIBlm19cpoa35hA78';
