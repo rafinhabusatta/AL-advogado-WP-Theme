@@ -89,7 +89,7 @@ li {
 /* Contact Buttons */
 .contact-buttons {
   position: fixed;
-  bottom: 0;
+  bottom: 50%;
   right: 0;
 }
 
