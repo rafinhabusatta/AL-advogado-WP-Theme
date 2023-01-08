@@ -35,7 +35,14 @@
         <ul class="d-lg-flex flex-lg-row justify-content-center mb-0 g-column-1-span-2 g-row-1">
           <li class="me-lg-3"><a href="#">Sobre</a></li>
           <li class="me-lg-3"><a href="#">Notícias</a></li>
-          <li><a href="#">Contato</a></li>
+          <?php 
+            $contato = NULL;
+            if(is_page('home'))
+              $contato = '#contato';
+            else 
+              $contato = site_url() . '/#contato';
+          ?>
+          <li><a href="<?php echo $contato; ?>">Contato</a></li>
         </ul>
       </div>
       <p class="col-12 bg-blue-medium mb-0 text-muted h-68 py-auto d-flex align-items-center justify-content-center order-lg-3">&copy; 2022 Andrade & Lacerda Advogados</p>

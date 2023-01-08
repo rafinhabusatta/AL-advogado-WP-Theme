@@ -32,7 +32,7 @@ function pageBanner($args = NULL) {
       <div class="col-12">
         <div class="row mx-0 mx-md-4 px-2">
           <div class="col-12 px-md-0">
-            <h1 class="text-center text-gold my-4 text-uppercase fw-bold fs-32 fs-lg-65">
+            <h1 class="text-center text-gold my-4 fw-bold fs-32 fs-lg-65">
               <?php 
                 echo $args['title'];
                 // if (is_category()) {
@@ -88,3 +88,10 @@ function aladvogadosMapKey($api) {
   return $api;
 }
 add_filter('acf/fields/google_map/api', 'aladvogadosMapKey');
+
+add_filter('ai1wm_exclude_content_from_export', 'excludeFiles');
+
+function excludeFiles($files) {
+  $files[] = 'themes/al-advogados/node_modules';
+  return $files;
+}

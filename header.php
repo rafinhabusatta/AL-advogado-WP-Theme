@@ -8,7 +8,7 @@
 </head>
 <body <?php body_class(); ?>>
 <header>
-  <nav class="navbar navbar-dark navbar-expand-lg bg-blue">
+  <nav class="navbar navbar-dark navbar-expand-lg bg-blue fs-lg-24">
     <?php 
       // wp_nav_menu(array(
       //   'theme_location' => 'headerMenuLocation',
@@ -21,7 +21,7 @@
     ?>
     <div class="container-fluid">
       <a class="navbar-brand" href="<?php echo site_url(); ?>">
-        <img src="<?php echo get_theme_file_uri('assets/Logo.svg'); ?>" alt="Logo" height="100" />
+        <img src="<?php echo get_theme_file_uri('assets/Logo.svg'); ?>" alt="Logo" height="150" />
       </a>
       <button
         class="navbar-toggler"

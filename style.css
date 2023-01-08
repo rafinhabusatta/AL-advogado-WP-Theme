@@ -89,16 +89,25 @@ li {
 /* Contact Buttons */
 .contact-buttons {
   position: fixed;
-  bottom: 50%;
+  bottom: 0%;
   right: 0;
+  z-index: 99999;
 }
 
 .contact-buttons a {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 10px;
-  width: 143px;
-  z-index: 99999;
-  border-radius: 8px 0 0 8px;
+  margin-right: 10px;
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+}
+
+.contact-buttons-svg {
+  height: 32px;
+  width: 32px;
 }
 
 .background-profile {
@@ -111,6 +120,12 @@ li {
   font-size: 32px;
   font-weight: 600;
   color: var(--white);
+}
+
+.imagem-da-noticia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @media (min-width: 768px) {
@@ -143,6 +158,23 @@ li {
 
   #nf-form-title-2 h3 {
     font-size: 48px;
+  }
+
+  .contact-buttons {
+    bottom: 50%;
+  }
+
+  .contact-buttons a {
+    display: block;
+    width: 143px;
+    border-radius: 8px 0 0 8px;
+    margin-right: 0;
+    height: auto;
+  }
+
+  .contact-buttons-svg {
+    height: 16px;
+    width: 16px;
   }
 }
 

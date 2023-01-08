@@ -18,6 +18,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+          <div class="row">
           <?php
             $Beneficios = new WP_QUERY(array(
               'posts_per_page' => -1,
@@ -35,8 +36,15 @@
             while($Beneficios->have_posts()) {
               $Beneficios->the_post(); 
           ?>
-          <h2 class="fs-6 fw-bold"><?php the_title(); ?></h2>
-          <?php the_content(); } wp_reset_postdata(); ?>
+          
+            <div class="col-12 col-lg-6">
+              <hr>
+             <h2 class="fs-5 fw-bold"><?php the_title(); ?></h2>
+              <?php the_content(); ?> 
+            </div>
+          
+          <?php } wp_reset_postdata(); ?>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
