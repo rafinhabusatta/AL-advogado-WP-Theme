@@ -1,6 +1,7 @@
 <?php
 
 require get_theme_file_path('/inc/search-route.php');
+require get_theme_file_path('/inc/page-banner.php');
 
 function aladvogados_custom_rest() {
   register_rest_field('post', 'authorName', array(
@@ -8,52 +9,6 @@ function aladvogados_custom_rest() {
   ));
 }
 add_action('rest_api_init', 'aladvogados_custom_rest');
-
-function pageBanner($args = NULL) {
-  if (!$args['title']) {
-    $args['title'] = get_the_title();
-  }
-
-  if (!$args['subtitle']) {
-    $args['subtitle'] = get_field('page_banner_subtitle');
-  }
-
-  if (!$args['photo']) {
-    if (get_field('page_banner_background_image') AND !is_archive() AND !is_home()) {
-      $args['photo'] = get_field('page_banner_background_image')['sizes']['pageBanner'];
-    } else {
-      $args['photo'] = get_theme_file_uri('/assets/bg-generic.svg');
-    }
-  }
-
-  ?>
-  <div class="container-fluid">
-    <div class="row bg-blue header-banner generic-banner text-center" style="background-image: url(<?php echo $args['photo']?>); background-repeat: no-repeat; background-size: cover;">
-      <div class="col-12">
-        <div class="row mx-0 mx-md-4 px-2">
-          <div class="col-12 px-md-0">
-            <h1 class="text-center text-gold my-4 fw-bold fs-32 fs-lg-65">
-              <?php 
-                echo $args['title'];
-                // if (is_category()) {
-                //  single_cat_title();
-                // }
-                // if (is_author()) {
-                //   echo  'Posts by '; the_author();
-                // } ?></h1>
-          </div>
-        </div>
-        <div class="row mx-0 mx-md-4 px-2">
-          <div class="col-12 px-md-0 m-xl-auto">
-            <p class="class-justify">
-              <?php echo $args['subtitle'] ?>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<?php }
 
 function aladvogados_files() {
   wp_enqueue_style('google_fonts', '//fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
@@ -89,9 +44,33 @@ function aladvogadosMapKey($api) {
 }
 add_filter('acf/fields/google_map/api', 'aladvogadosMapKey');
 
-add_filter('ai1wm_exclude_content_from_export', 'excludeFiles');
+add_filter('ai1wm_exclude_themes_from_export', 'excludeFiles');
 
 function excludeFiles($files) {
-  $files[] = 'themes/al-advogados/node_modules';
+  $files[] = 'al-advogados/node_modules';
   return $files;
 }
+
+function description() {
+  if (is_single()) {
+    $description = get_the_excerpt();
+  } else {
+    $description = get_bloginfo('description');
+  }
+  echo '<meta name="description" content="' . $description . '">';
+}
+add_action('wp_head', 'description');
+
+function addFavIcon() {
+  echo '<link rel="shortcut icon" href="' . get_theme_file_uri('/images/favicon.ico') . '" />';
+}
+add_action('wp_head', 'addFavIcon');
+
+function IndexPages($robots) {
+  $robots['noindex'] = false;
+
+  return $robots;
+}
+add_filter('wp_robots', 'IndexPages');
+
+

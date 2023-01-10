@@ -10,11 +10,11 @@
     $Specialties->the_post(); 
 ?>
 
-  <div class="modal fade" id="Modal<?php echo get_the_ID(); ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="Modal<?php echo str_replace(' ', '',get_the_title()); ?>" tabindex="-1" aria-labelledby="Modal<?php echo str_replace(' ', '',get_the_title()); ?>" aria-hidden="true">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel"><?php the_title(); ?></h1>
+          <h1 class="modal-title fs-5"><?php the_title(); ?></h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
