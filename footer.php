@@ -45,7 +45,7 @@
           <li><a href="<?php echo $contato; ?>">Contato</a></li>
         </ul>
       </div>
-      <p class="col-12 bg-blue-medium mb-0 text-muted h-68 py-auto d-flex align-items-center justify-content-center order-lg-3">&copy; 2022 Andrade & Lacerda Advogados</p>
+      <p class="col-12 bg-blue-medium mb-0 text-muted h-68 py-auto d-flex align-items-center justify-content-center order-lg-3">&copy; <?php echo date('Y'); ?> Andrade & Lacerda Advogados</p>
     </div>
   </footer>
 </div>
